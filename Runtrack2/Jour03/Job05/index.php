@@ -1,26 +1,24 @@
-
 <?php
-$str = "On n’est pas le meilleur quand on le croit mais quand on le sait";
+echo "Voici la liste des nombres premier jusqu'à 1000 :";
+echo "<br/>";
+// Initialisation des variables
+$nombre = 2;
 
-$dic = array("consonnes" => 0, "voyelles" => 0);
+// Boucle pour afficher les nombres premiers jusqu'à 1000
+while ($nombre <= 1000) {
 
-for ($i = 0; $i < strlen($str); $i++) {
-  if (in_array($str[$i], array("a", "e", "i", "o", "u", "y", "é", "è", "à", "ù", "A", "E", "I", "O", "U", "Y"))) {
-    $dic["voyelles"] += 1;
-  } elseif (!in_array($str[$i], array(" ", "'", "’"))) {
-    $dic["consonnes"] += 1;
-  }
+    // Initialisation de la variable pour compter le nombre de diviseurs
+    $diviseur = 0;
+    // Boucle pour compter les diviseurs
+    for ($i = 1; $i <= $nombre; $i++) {
+        if ($nombre % $i == 0) {
+            $diviseur++;
+        }
+    }
+    // Si le nombre n'a que 2 diviseurs, alors il est premier
+    if ($diviseur == 2) {
+        echo $nombre . "<br />";
+    }
+    $nombre++;
 }
-echo "<table>
-    <thead>
-      <tr>
-        <th>Voyelles</th>
-        <th>Consonnes</th>
-      </tr>
-    </thead>
-    <tbody>
-
-
-
 ?>
-
